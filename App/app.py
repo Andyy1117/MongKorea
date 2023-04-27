@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 # Imports for blueprints and other modules written for the application
 # from views.task_view import task_list_blueprint
-from api.user_api import user_api_blueprint
+from portfolio_view import portfolio_blueprint
 import utility.db as DBUtils
 
 # Load all the private data from the 
@@ -33,8 +33,8 @@ app.config["DBPASSWORD"] = os.getenv("DBPASSWORD")
 app.config["SECRET_KEY"] = uuid.uuid4().hex
 
 # Setup Views
-# app.register_blueprint(task_list_blueprint)
-# app.register_blueprint(task_api_blueprint)
+app.register_blueprint(portfolio_blueprint)
+
 
 
 # Helper function to establish a connection to the database
@@ -76,3 +76,4 @@ def before():
 def after(response):
     disconnect_db()
     return response
+

@@ -1,100 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Portfolio App - Sign In/Sign Up</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f0f0f0;
-		}
-		
-		.container {
-			margin: auto;
-			max-width: 600px;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-		}
-		
-		h1 {
-			text-align: center;
-			margin-top: 0;
-		}
-		
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-		
-		input[type="text"], input[type="email"], input[type="password"] {
-			padding: 10px;
-			margin: 10px 0;
-			width: 100%;
-			border-radius: 5px;
-			border: none;
-			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-		}
-		
-		input[type="submit"] {
-			background-color: #008CBA;
-			color: #fff;
-			padding: 10px;
-			border-radius: 5px;
-			border: none;
-			cursor: pointer;
-			transition: all 0.3s ease-in-out;
-			margin: 10px 0;
-			width: 100%;
-		}
-		
-		input[type="submit"]:hover {
-			background-color: #005B80;
-		}
-		
-		.error {
-			color: red;
-			font-size: 0.8rem;
-			margin-top: 5px;
-		}
-		
-	</style>
-</head>
-<body>
-	<div class="container">
-		<h1>Portfolio Application</h1>
+{% extends "layout.html" %}
 
-        <!-- Sign Up Form -->
-        <form action="register.php" method="post">
-            <h2>Sign Up</h2>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required><br><br>
-        
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br><br>
-        
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required><br><br>
-        
-            <input type="submit" value="Sign Up">
+{% block body %}
+    <div class="container">
+        <form class="form" id="login">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Username or email">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a href="#" class="form__link">Forgot your password?</a>
+            </p>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
         </form>
-
-
-		<!-- Sign In Form -->
-        <form action="login.php" method="post">
-            <h2>Sign In</h2>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br><br>
-            
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required><br><br>
-            
-            <input type="submit" value="Sign In">
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Create Account</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Email Address">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Confirm password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
         </form>
-    </body>
-    </html>
-	</div>
-</body>
-</html>
+    </div>
+    <script src="{{ url_for ('static', filename='./src/main.js') }}"></script>
+{% endblock %}
