@@ -67,7 +67,7 @@
 		<h1>Portfolio Application</h1>
 
         <!-- Sign Up Form -->
-        <form action="register.php" method="post">
+        <form action="/register" method="post">
             <h2>Sign Up</h2>
             <label for="username">Username:</label>
             <input type="text" name="username" id="username" required><br><br>
@@ -81,20 +81,15 @@
             <input type="submit" value="Sign Up">
         </form>
 
-
 		<!-- Sign In Form -->
-        <form action="login.php" method="post">
-            <h2>Sign In</h2>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br><br>
-            
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required><br><br>
-            
-            <input type="submit" value="Sign In">
-        </form>
-    </body>
-    </html>
-	</div>
-</body>
-</html>
+	<form action="/login" method="post">
+		<h2>Sign In</h2>
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" required><br><br>
+			  
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password" required><br><br>
+			  
+		<input type="submit" value="Sign In">
+  	</form>
+	
